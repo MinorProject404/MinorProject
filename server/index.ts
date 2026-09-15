@@ -25,7 +25,7 @@ app.post("/api/analyze", async (req, res) => {
       return res.status(400).json({ error: "Text is too short for contract analysis." });
     }
 
-    const apiKey = "AQ.Ab8RN6JX1gj5x-jAOGicmka3EGknVAXT3qzJA3i7SDpaSzFhQw";
+    const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return res.status(500).json({
         error: "AI is not configured. Add GEMINI_API_KEY to your server environment.",
